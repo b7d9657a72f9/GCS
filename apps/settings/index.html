@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>settings</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="icon" href="/favicon.ico">
+</head>
+<body>
+	<select id="theme">
+		<option value="og">Original - Red based theme</option>
+		<option value="alt">Blue - Alternate theme</option>
+		<option value="dull">Dull - Light mode</option>
+		<option value="night">Night - Dark mode</option>
+	</select>
+	<button id="apply">Apply</button>
+	<br>
+	<label>
+        Password: <input id="password">
+    </label>
+	<button id="set">Set</button>
+	<script>
+		document.getElementById('apply').addEventListener('click', () => {
+			switch (document.getElementById('theme').value) {
+				case 'og':
+					localStorage.setItem('fade-color', '#ff000066');
+					localStorage.setItem('bg-color', '#852b2bff');
+					localStorage.setItem('main-color', '#ff0000ff');
+					localStorage.setItem('secondary-color', '#ff3333ff');
+					localStorage.setItem('hover-color', '#cc0303ff');
+					localStorage.setItem('text-color', '#fff');
+					break;
+				case 'alt':
+					localStorage.setItem('fade-color', '#2600ff66');
+					localStorage.setItem('bg-color', '#2b3985ff');
+					localStorage.setItem('main-color', '#0004ffff');
+					localStorage.setItem('secondary-color', '#3336ffff');
+					localStorage.setItem('hover-color', '#0317ccff');
+					localStorage.setItem('text-color', '#fff');
+					break;
+				case 'dull':
+					localStorage.setItem('fade-color', '#ebebeb7e');
+					localStorage.setItem('bg-color', '#cfcfcfff');
+					localStorage.setItem('main-color', '#d8d8d8ff');
+					localStorage.setItem('secondary-color', '#e0e0e0ff');
+					localStorage.setItem('hover-color', '#c4c4c4ff');
+					localStorage.setItem('text-color', '#000000ff');
+					break;
+				case 'night':
+					localStorage.setItem('fade-color', '#53535366');
+					localStorage.setItem('bg-color', '#4e4e4eff');
+					localStorage.setItem('main-color', '#3f3f3fff');
+					localStorage.setItem('secondary-color', '#333333ff');
+					localStorage.setItem('hover-color', '#2b2b2bff');
+					localStorage.setItem('text-color', '#fff');
+					break;
+			}
+
+			window.top.location.reload();
+		});
+
+		document.getElementById('set').addEventListener('click', () => {
+            localStorage.setItem('GCS-password', document.getElementById('password').value);
+			window.top.location.reload();
+        });
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gaming Control System</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="stylesheet" href="/css/system.css">
+	<script src="/js/theme.js"></script>
+</head>
+<body>
+	<div id="nav">
+		<button id="run">Run</button>
+		<button id="links">Links</button>
+		<button id="settings">Settings</button>
+	</div>
+	<script src="/js/gcs.js"></script>
+	<script>
+		document.getElementById('run').addEventListener('click', () => {
+			let app = prompt('App to run:');
+			createGCSWindow(`/apps/${app}/index.html`, app, 500, 500, 50, 50);
+		});
+
+		document.getElementById('settings').addEventListener('click', () => {
+			createGCSWindow('/apps/settings/index.html', 'Settings', 500, 500, 50, 50);
+		});
+
+		document.getElementById('links').addEventListener('click', () => {
+			createGCSWindow('/apps/links/index.html', 'Links', 500, 500, 50, 50);
+		});
+
+		if (localStorage.getItem('GCS-password') === null || localStorage.getItem('GCS-password') === '') {
+			createGCSWindow('/apps/settings/index.html', 'Settings', 500, 500, 50, 50);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/theme.js"></script>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+
+        #gru {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <img id="gru" src="./gru.png">
+    <script>
+        let gruMusic = new Audio('./Despicable_Me.mp3');
+        gruMusic.loop = 'true';
+
+        document.getElementById('gru').addEventListener('click', () => {
+            gruMusic.play();
+        });
+    </script>
+</body>
+</html>
