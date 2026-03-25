@@ -16,7 +16,7 @@ function AddFrame(Row, FrameId, Source) {
         Frame.src = `https://${Source}`;
     } else if (Source.startsWith('app://')) {
         let RawUrl = Source;
-        Frame.src = `/GCS/app/${RawUrl.replace('app://', '')}`;
+        Frame.src = `../app/${RawUrl.replace('app://', '')}`;
     } else {
         Frame.src = Source;
     }
@@ -42,7 +42,7 @@ function AddFrame(Row, FrameId, Source) {
 
         if (Url.startsWith('app://')) {
             let AppName = Url.replace('app://', '');
-            Url = `/GCS/app/${AppName}`;
+            Url = `../app/${AppName}`;
         } else if (!Url.startsWith('https://') && !Url.startsWith('http://')) {
             Url = `https://${Url}`;
         }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Control System - Boot</title>
-    <script src="/GCS/script/theme.js"></script>
+    <script src="./script/theme.js"></script>
     <style>
         body {
             background-color: var(--bg-color);
@@ -34,7 +34,7 @@
     </div>
     <script>
         document.getElementById('bootmenu').addEventListener('input', () => {
-            location.replace(`/GCS/${document.getElementById('selection').value}`);
+            location.replace(`./${document.getElementById('selection').value}`);
         });
     </script>
 </body>
