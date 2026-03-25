@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Control System - Boot</title>
+    <script src="/script/theme.js"></script>
+    <style>
+        body {
+            background-color: var(--bg-color);
+        }
+
+        #bootmenu {
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: var(--main-color);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            display: grid;
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="bootmenu">
+        <select id="selection">
+            <option>Choose environment</option>
+            <option value="ws">Windows System</option>
+            <option value="ts">Tile System</option>
+        </select>
+    </div>
+    <script>
+        document.getElementById('bootmenu').addEventListener('input', () => {
+            location.replace(`/${document.getElementById('selection').value}`);
+        });
+    </script>
+</body>
+</html>

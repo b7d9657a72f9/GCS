@@ -8,16 +8,25 @@ function loadLinks() {
         let links = localStorage.getItem('links').split(',');
 
         for (let a = 0; a < links.length; a++) {
+            console.log(links[a]);
             let linkElement = document.createElement('a'),
-                removeLinkElement = document.createElement('button'),
-                spacerElement = document.createElement('hr'),
-                blockCheckerElement = document.createElement('object');
+            removeLinkElement = document.createElement('button'),
+            spacerElement = document.createElement('hr'),
+            blockCheckerElement = document.createElement('object');
 
             linkElement.id = links[a].replace('https://', '');
             linkElement.innerText = links[a].replace('https://', '');
 
             linkElement.addEventListener('click', () => {
-                window.top.createGCSWindow(links[a], linkElement.id, 500, 500, 50, 50);
+                if (window.top.document.getElementsByTagName('td').length <= 28) {
+                    window.top.AddFrame(window.top.row, window.top.document.getElementsByTagName('td').length, links[a]);
+                }
+
+                if (window.top.row === 1) {
+                    window.top.row = 2;
+                } else if (window.top.row === 2) {
+                    window.top.row = 1;
+                }
             });
 
             removeLinkElement.addEventListener('click', () => {
